@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { Container } from "@/components/shared";
+import RootLayout from "./layout";
 
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <RootLayout>
+      <Container>Главная</Container>
+    </RootLayout>
+  );
 }
