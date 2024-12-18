@@ -1,10 +1,14 @@
-import { Container } from "@/components/shared";
-import RootLayout from "./layout";
+import { Container, Title } from "@/components/shared";
+import TopBar from "@/components/shared/top-bar";
 
 export default function Home() {
   return (
-    <RootLayout>
-      <Container>Главная</Container>
-    </RootLayout>
+    <>
+      <Container className="mt-10">
+        <Title text="Все пиццы" size="lg" className="font-extrabold" />
+      </Container>
+
+      <TopBar />
+    </>
   );
 }
