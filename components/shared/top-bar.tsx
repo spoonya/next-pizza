@@ -10,7 +10,7 @@ interface TopBarProps {
   className?: string;
 }
 
-export default function TopBar({ className }: TopBarProps) {
+export function TopBar({ className }: TopBarProps) {
   return (
     <div
       className={cn(
