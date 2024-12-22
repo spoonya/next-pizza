@@ -37,7 +37,7 @@ export function Filters({ className }: FiltersProps) {
             placeholder="1000"
             min={100}
             max={1000}
-            defaultValue={0}
+            defaultValue={1000}
           />
         </div>
 
