@@ -19,6 +19,7 @@ model User {
   verificationCode VerificationCode?
   provider         String?
   providerId       String?
+  verified         DateTime
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
