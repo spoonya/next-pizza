@@ -69,8 +69,10 @@ model ProductIngredient {
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
   ingredientId Int
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  CartItem   CartItem? @relation(fields: [cartItemId], references: [id])
+  cartItemId Int?
 
   @@unique([productId, ingredientId])
 }
@@ -106,11 +108,14 @@ model Cart {
 model CartItem {
   id Int @id @default(autoincrement())
 
-  quantity      Int
+  quantity Int @default(1)
+
   cart          Cart?       @relation(fields: [cartId], references: [id])
   cartId        Int?
   productItem   ProductItem @relation(fields: [productItemId], references: [id])
   productItemId Int
+
+  ingredients ProductIngredient[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
