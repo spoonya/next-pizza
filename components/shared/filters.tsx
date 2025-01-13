@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+
+import { useIngredients } from "@/hooks/use-ingredients";
 
 import { Input } from "../ui";
 import { CheckboxFiltersGroup } from "./checkbox-filters-group";
@@ -11,6 +15,13 @@ interface FiltersProps {
 }
 
 export function Filters({ className }: FiltersProps) {
+  const { ingredients, loading } = useIngredients();
+
+  const items = ingredients.map((item) => ({
+    value: String(item.id),
+    text: item.name,
+  }));
+
   return (
     <div className={className}>
       <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
@@ -49,70 +60,9 @@ export function Filters({ className }: FiltersProps) {
         title="Ингредиенты"
         limit={5}
         className="mt-5"
-        defaultItems={[
-          {
-            text: "Мясо",
-            value: "1",
-          },
-          {
-            text: "Рыба",
-            value: "2",
-          },
-          {
-            text: "Овощи",
-            value: "3",
-          },
-          {
-            text: "Фрукты",
-            value: "4",
-          },
-        ]}
-        items={[
-          {
-            text: "Мясо",
-            value: "1",
-          },
-          {
-            text: "Рыба",
-            value: "2",
-          },
-          {
-            text: "Овощи",
-            value: "3",
-          },
-          {
-            text: "Фрукты",
-            value: "4",
-          },
-          {
-            text: "Ягоды",
-            value: "5",
-          },
-          {
-            text: "Сыр",
-            value: "6",
-          },
-          {
-            text: "Молочные продукты",
-            value: "7",
-          },
-          {
-            text: "Мясо",
-            value: "8",
-          },
-          {
-            text: "Рыба",
-            value: "9",
-          },
-          {
-            text: "Овощи",
-            value: "10",
-          },
-          {
-            text: "Фрукты",
-            value: "11",
-          },
-        ]}
+        defaultItems={items.slice(0, 6)}
+        items={items}
+        loading={loading}
       />
     </div>
   );
