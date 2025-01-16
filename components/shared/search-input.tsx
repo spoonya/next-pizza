@@ -60,7 +60,7 @@ export function SearchInput({ className }: Props) {
         <Search className="absolute top-1/2 -translate-y-1/2 left-3 h-5 text-gray-400" />
         <input
           type="text"
-          placeholder="Пицца 4 сыра мазератти..."
+          placeholder="Пицца 4 сыра мазерати..."
           className="w-full pl-10 pr-4 h-full rounded-2xl border border-gray-200 bg-gray-100 focus:outline-none focus:border-transparent placeholder:text-gray-400"
           onFocus={() => setFocused(true)}
           value={searchQuery}
