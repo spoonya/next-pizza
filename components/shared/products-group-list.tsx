@@ -46,8 +46,10 @@ export function ProductsGroupList({
             id={product.id}
             name={product.name}
             imageUrl={product.imageUrl}
-            ingredients={product.ingredients}
-            price={product.price}
+            ingredients={product.productIngredients.map(
+              (productIngredient) => productIngredient.ingredient.name
+            )}
+            price={Math.min(...product.productItems.map((item) => item.price))}
             className="w-full"
           />
         ))}
