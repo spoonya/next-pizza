@@ -31,9 +31,7 @@ export function ProductCard({
 
         <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
 
-        <p className="text-sm text-gray-400">
-          {ingredients.map((ingredient) => ingredient).join(", ")}
-        </p>
+        <p className="text-sm text-gray-400">{ingredients.join(", ")}</p>
 
         <div className="flex justify-between items-center mt-4">
           <span className="text-[20px]">
