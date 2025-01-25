@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import React from "react";
 
+import { prisma } from "@/prisma/prisma-client";
 import {
   Container,
   GroupVariants,
   ProductImage,
   Title,
-} from "@/components/shared";
-import { prisma } from "@/prisma/prisma-client";
+} from "@/src/components/shared";
 
 export default async function ProductPage({
   params: { id },
