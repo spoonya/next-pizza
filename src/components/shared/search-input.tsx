@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { Search } from "lucide-react";
-import Link from "next/link";
-import React from "react";
-import { useClickAway, useDebounce } from "react-use";
+import { Search } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
+import { useClickAway, useDebounce } from 'react-use';
 
-import { cn } from "@/src/lib/utils";
-import { Api } from "@/src/services/api-client";
-import { AppRoutes } from "@/src/services/constants";
-import { Product } from "@prisma/client";
+import { cn } from '@/src/lib/utils';
+import { Api } from '@/src/services/api-client';
+import { AppRoutes } from '@/src/services/constants';
+import { Product } from '@prisma/client';
 
 interface Props {
   className?: string;
 }
 
-export function SearchInput({ className }: Props) {
+export function SearchInput({ className }: Readonly<Props>) {
   const [focused, setFocused] = React.useState(false);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchQuery, setSearchQuery] = React.useState('');
   const [products, setProducts] = React.useState<Product[]>([]);
 
   const ref = React.useRef(null);
@@ -27,7 +27,7 @@ export function SearchInput({ className }: Props) {
 
   const onClickItem = () => {
     setFocused(false);
-    setSearchQuery("");
+    setSearchQuery('');
     setProducts([]);
   };
 
@@ -53,7 +53,7 @@ export function SearchInput({ className }: Props) {
       <div
         ref={ref}
         className={cn(
-          "flex rounded-2xl flex-1 justify-between relative h-11 z-30",
+          'flex rounded-2xl flex-1 justify-between relative h-11 z-30',
           className
         )}
       >
@@ -70,8 +70,8 @@ export function SearchInput({ className }: Props) {
         {products.length > 0 && (
           <div
             className={cn(
-              "absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30",
-              focused && "visible opacity-100 top-12"
+              'absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
+              focused && 'visible opacity-100 top-12'
             )}
           >
             {products.map((product) => (

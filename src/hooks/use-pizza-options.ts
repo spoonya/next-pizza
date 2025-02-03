@@ -1,11 +1,11 @@
-import React from "react";
-import { useSet } from "react-use";
+import React from 'react';
+import { useSet } from 'react-use';
 
-import { ProductItem } from "@prisma/client";
+import { ProductItem } from '@prisma/client';
 
-import { Variant } from "../components/shared/group-variants";
-import { PizzaSize, PizzaType } from "../constants";
-import { getAvailablePizzaSizes } from "../lib";
+import { Variant } from '../components/shared/group-variants';
+import { PizzaSize, PizzaType } from '../constants';
+import { getAvailablePizzaSizes } from '../lib';
 
 interface ReturnProps {
   size: PizzaSize;
@@ -19,7 +19,7 @@ interface ReturnProps {
 
 export const usePizzaOptions = (items: ProductItem[]): ReturnProps => {
   const [size, setSize] = React.useState<PizzaSize>(20);
-  const [type, setType] = React.useState<PizzaType>("THICK");
+  const [type, setType] = React.useState<PizzaType>('THICK');
   const [selectedIngredients, { toggle: addIngredient }] = useSet(
     new Set<number>([])
   );

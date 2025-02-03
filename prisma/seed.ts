@@ -1,9 +1,9 @@
-import { hashSync } from "bcrypt";
+import { hashSync } from 'bcrypt';
 
-import { Prisma } from "@prisma/client";
+import { Prisma } from '@prisma/client';
 
-import { _ingredients, categories, products } from "./constants";
-import { prisma } from "./prisma-client";
+import { _ingredients, categories, products } from './constants';
+import { prisma } from './prisma-client';
 
 const randomDecimalNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10;
@@ -15,7 +15,7 @@ const generateProductItem = ({
   size,
 }: {
   productId: number;
-  pizzaType?: "THIN" | "THICK";
+  pizzaType?: 'THIN' | 'THICK';
   size?: 20 | 30 | 40;
 }) => {
   return {
@@ -30,18 +30,18 @@ async function up() {
   await prisma.user.createMany({
     data: [
       {
-        fullName: "User Test",
-        email: "user@test.ru",
-        password: hashSync("111111", 10),
+        fullName: 'User Test',
+        email: 'user@test.ru',
+        password: hashSync('111111', 10),
         verified: new Date(),
-        role: "USER",
+        role: 'USER',
       },
       {
-        fullName: "Admin Admin",
-        email: "admin@test.ru",
-        password: hashSync("111111", 10),
+        fullName: 'Admin Admin',
+        email: 'admin@test.ru',
+        password: hashSync('111111', 10),
         verified: new Date(),
-        role: "ADMIN",
+        role: 'ADMIN',
       },
     ],
   });
@@ -60,9 +60,9 @@ async function up() {
 
   const pizza1 = await prisma.product.create({
     data: {
-      name: "Пепперони фреш",
+      name: 'Пепперони фреш',
       imageUrl:
-        "https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp",
+        'https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp',
       categoryId: 1,
       productIngredients: {
         create: _ingredients.slice(0, 5).map((ingredient) => ({
@@ -74,9 +74,9 @@ async function up() {
 
   const pizza2 = await prisma.product.create({
     data: {
-      name: "Сырная",
+      name: 'Сырная',
       imageUrl:
-        "https://media.dodostatic.net/image/r:233x233/11EE7D610CF7E265B7C72BE5AE757CA7.webp",
+        'https://media.dodostatic.net/image/r:233x233/11EE7D610CF7E265B7C72BE5AE757CA7.webp',
       categoryId: 1,
       productIngredients: {
         create: _ingredients.slice(5, 10).map((ingredient) => ({
@@ -88,9 +88,9 @@ async function up() {
 
   const pizza3 = await prisma.product.create({
     data: {
-      name: "Чоризо фреш",
+      name: 'Чоризо фреш',
       imageUrl:
-        "https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp",
+        'https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp',
       categoryId: 1,
       productIngredients: {
         create: _ingredients.slice(10, 40).map((ingredient) => ({
@@ -105,66 +105,66 @@ async function up() {
       // Пицца "Пепперони фреш"
       generateProductItem({
         productId: pizza1.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 20,
       }),
       generateProductItem({
         productId: pizza1.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 30,
       }),
       generateProductItem({
         productId: pizza1.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 40,
       }),
 
       // Пицца "Сырная"
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 20,
       }),
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 30,
       }),
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 40,
       }),
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 20,
       }),
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 30,
       }),
       generateProductItem({
         productId: pizza2.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 40,
       }),
 
       // Пицца "Чоризо фреш"
       generateProductItem({
         productId: pizza3.id,
-        pizzaType: "THIN",
+        pizzaType: 'THIN',
         size: 20,
       }),
       generateProductItem({
         productId: pizza3.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 30,
       }),
       generateProductItem({
         productId: pizza3.id,
-        pizzaType: "THICK",
+        pizzaType: 'THICK',
         size: 40,
       }),
 
@@ -194,12 +194,12 @@ async function up() {
       {
         userId: 1,
         totalAmount: 0,
-        token: "11111",
+        token: '11111',
       },
       {
         userId: 2,
         totalAmount: 0,
-        token: "222222",
+        token: '222222',
       },
     ],
   });
@@ -218,13 +218,13 @@ async function up() {
 
 async function down() {
   const tables = [
-    "User",
-    "Category",
-    "Cart",
-    "CartItem",
-    "Ingredient",
-    "Product",
-    "ProductItem",
+    'User',
+    'Category',
+    'Cart',
+    'CartItem',
+    'Ingredient',
+    'Product',
+    'ProductItem',
   ];
 
   for (const table of tables) {

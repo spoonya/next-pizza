@@ -1,22 +1,22 @@
-import { ArrowRight, ShoppingCart, User } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { ArrowRight, ShoppingCart, User } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-import { cn } from "@/src/lib/utils";
-import { AppRoutes } from "@/src/services/constants";
+import { cn } from '@/src/lib/utils';
+import { AppRoutes } from '@/src/services/constants';
 
-import { Button } from "../ui";
-import { Container } from "./container";
-import { SearchInput } from "./search-input";
+import { Button } from '../ui';
+import { Container } from './container';
+import { SearchInput } from './search-input';
 
 interface HeaderProps {
   className?: string;
 }
 
-export function Header({ className }: HeaderProps) {
+export function Header({ className }: Readonly<HeaderProps>) {
   return (
-    <header className={cn("border border-b", className)}>
+    <header className={cn('border border-b', className)}>
       <Container className="flex justify-between items-center py-8">
         {/* Левая часть */}
         <Link href={AppRoutes.HOME}>

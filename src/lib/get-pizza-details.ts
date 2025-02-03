@@ -1,7 +1,7 @@
-import { Ingredient, ProductItem } from "@prisma/client";
+import { Ingredient, ProductItem } from '@prisma/client';
 
-import { mapPizzaType, PizzaSize, PizzaType } from "../constants";
-import { calcTotalPizzasPrice } from "./calc-total-pizzas-price";
+import { mapPizzaType, PizzaSize, PizzaType } from '../constants';
+import { calcTotalPizzasPrice } from './calc-total-pizzas-price';
 
 interface Params {
   items: ProductItem[];

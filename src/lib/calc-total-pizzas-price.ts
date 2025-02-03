@@ -1,6 +1,6 @@
-import { Ingredient, ProductItem } from "@prisma/client";
+import { Ingredient, ProductItem } from '@prisma/client';
 
-import { PizzaSize, PizzaType } from "../constants";
+import { PizzaSize, PizzaType } from '../constants';
 
 interface Params {
   items: ProductItem[];
@@ -19,11 +19,11 @@ export const calcTotalPizzasPrice = ({
 }: Params) => {
   const pizzaPrice =
     items.find((item) => item.pizzaType === type && item.size === size)
-      ?.price || 0;
+      ?.price ?? 0;
   const totalIngredientsPrice =
     ingredients
       ?.filter((ingredient) => selectedIngredients.has(ingredient.id))
-      .reduce((acc, ingredient) => acc + ingredient.price, 0) || 0;
+      .reduce((acc, ingredient) => acc + ingredient.price, 0) ?? 0;
 
   return pizzaPrice + totalIngredientsPrice;
 };

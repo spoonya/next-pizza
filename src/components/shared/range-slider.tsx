@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { cn } from "@/src/lib/utils";
-import * as SliderPrimitive from "@radix-ui/react-slider";
+import { cn } from '@/src/lib/utils';
+import * as SliderPrimitive from '@radix-ui/react-slider';
 
 type SliderProps = {
   className?: string;
@@ -53,7 +53,7 @@ const RangeSlider = React.forwardRef(
         value={localValues}
         onValueChange={handleValueChange}
         className={cn(
-          "relative flex w-full touch-none select-none mb-6 items-center",
+          'relative flex w-full touch-none select-none mb-6 items-center',
           className
         )}
         {...props}

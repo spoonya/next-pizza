@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Api } from "@/src/services/api-client";
-import { Ingredient } from "@prisma/client";
+import { Api } from '@/src/services/api-client';
+import { Ingredient } from '@prisma/client';
 
 export const useIngredients = () => {
   const [ingredients, setIngredients] = React.useState<Ingredient[]>([]);

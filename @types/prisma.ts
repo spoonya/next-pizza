@@ -3,7 +3,7 @@ import {
   Product,
   ProductIngredient,
   ProductItem,
-} from "@prisma/client";
+} from '@prisma/client';
 
 export type ProductWithRelations = Product & {
   productItems: Array<ProductItem & { productId?: number }>;

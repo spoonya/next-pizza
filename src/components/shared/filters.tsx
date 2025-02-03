@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { useFilters, useIngredients, useQueryFilters } from "@/src/hooks";
+import { useFilters, useIngredients, useQueryFilters } from '@/src/hooks';
 
-import { Input } from "../ui";
-import { CheckboxFiltersGroup } from "./checkbox-filters-group";
-import { RangeSlider } from "./range-slider";
-import { Title } from "./title";
+import { Input } from '../ui';
+import { CheckboxFiltersGroup } from './checkbox-filters-group';
+import { RangeSlider } from './range-slider';
+import { Title } from './title';
 
 interface Props {
   className?: string;
@@ -25,8 +25,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
   }));
 
   const updatePrices = (prices: number[]) => {
-    filters.setPrices("priceFrom", prices[0]);
-    filters.setPrices("priceTo", prices[1]);
+    filters.setPrices('priceFrom', prices[0]);
+    filters.setPrices('priceTo', prices[1]);
   };
 
   return (
@@ -41,8 +41,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
         onClickCheckbox={filters.setPizzaTypes}
         selected={filters.pizzaTypes}
         items={[
-          { text: "Тонкое", value: "THIN" },
-          { text: "Традиционное", value: "THICK" },
+          { text: 'Тонкое', value: 'THIN' },
+          { text: 'Традиционное', value: 'THICK' },
         ]}
       />
 
@@ -53,9 +53,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
         onClickCheckbox={filters.setSizes}
         selected={filters.sizes}
         items={[
-          { text: "20 см", value: "20" },
-          { text: "30 см", value: "30" },
-          { text: "40 см", value: "40" },
+          { text: '20 см', value: '20' },
+          { text: '30 см', value: '30' },
+          { text: '40 см', value: '40' },
         ]}
       />
 
@@ -70,7 +70,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
             max={1000}
             value={String(filters.prices.priceFrom)}
             onChange={(e) =>
-              filters.setPrices("priceFrom", Number(e.target.value))
+              filters.setPrices('priceFrom', Number(e.target.value))
             }
           />
           <Input
@@ -80,7 +80,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
             placeholder="1000"
             value={String(filters.prices.priceTo)}
             onChange={(e) =>
-              filters.setPrices("priceTo", Number(e.target.value))
+              filters.setPrices('priceTo', Number(e.target.value))
             }
           />
         </div>
@@ -90,8 +90,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
           max={1000}
           step={10}
           value={[
-            filters.prices.priceFrom || 0,
-            filters.prices.priceTo || 1000,
+            filters.prices.priceFrom ?? 0,
+            filters.prices.priceTo ?? 1000,
           ]}
           onValueChange={updatePrices}
         />

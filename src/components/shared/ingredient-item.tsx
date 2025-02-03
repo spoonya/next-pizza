@@ -1,7 +1,7 @@
-import { CircleCheck } from "lucide-react";
-import React from "react";
+import { CircleCheck } from 'lucide-react';
+import React from 'react';
 
-import { cn } from "@/src/lib/utils";
+import { cn } from '@/src/lib/utils';
 
 interface Props {
   imageUrl: string;
@@ -21,10 +21,11 @@ export const IngredientItem: React.FC<Props> = ({
   onClick,
 }) => {
   return (
-    <div
+    <button
+      type="button"
       className={cn(
-        "flex items-center flex-col p-1 rounded-md w-32 text-center relative cursor-pointer shadow-md bg-white",
-        { "border border-primary": active },
+        'flex items-center flex-col p-1 rounded-md w-32 text-center relative cursor-pointer shadow-md bg-white',
+        { 'border border-primary': active },
         className
       )}
       onClick={onClick}
@@ -35,6 +36,6 @@ export const IngredientItem: React.FC<Props> = ({
       <img width={110} height={110} src={imageUrl} alt={name} />
       <span className="text-xs mb-1">{name}</span>
       <span className="font-bold">{price} ₽</span>
-    </div>
+    </button>
   );
 };

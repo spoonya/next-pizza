@@ -1,19 +1,19 @@
-import { notFound } from "next/navigation";
-import React from "react";
+import { notFound } from 'next/navigation';
+import React from 'react';
 
-import { prisma } from "@/prisma/prisma-client";
+import { prisma } from '@/prisma/prisma-client';
 import {
   Container,
   GroupVariants,
   ProductImage,
   Title,
-} from "@/src/components/shared";
+} from '@/src/components/shared';
 
 export default async function ProductPage({
   params: { id },
-}: {
+}: Readonly<{
   params: { id: string };
-}) {
+}>) {
   const product = await prisma.product.findFirst({
     where: {
       id: Number(id),
@@ -46,18 +46,18 @@ export default async function ProductPage({
           <GroupVariants
             items={[
               {
-                name: "20 см",
-                value: "20",
+                name: '20 см',
+                value: '20',
                 disabled: false,
               },
               {
-                name: "30 см",
-                value: "30",
+                name: '30 см',
+                value: '30',
                 disabled: false,
               },
               {
-                name: "40 см",
-                value: "40",
+                name: '40 см',
+                value: '40',
                 disabled: false,
               },
             ]}

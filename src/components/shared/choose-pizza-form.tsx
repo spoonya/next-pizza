@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { PizzaSize, PizzaType, pizzaTypes } from "@/src/constants";
-import { usePizzaOptions } from "@/src/hooks";
-import { getPizzaDetails } from "@/src/lib";
-import { cn } from "@/src/lib/utils";
-import { Ingredient, ProductItem } from "@prisma/client";
+import { PizzaSize, PizzaType, pizzaTypes } from '@/src/constants';
+import { usePizzaOptions } from '@/src/hooks';
+import { getPizzaDetails } from '@/src/lib';
+import { cn } from '@/src/lib/utils';
+import { Ingredient, ProductItem } from '@prisma/client';
 
-import { Button } from "../ui";
-import { GroupVariants } from "./group-variants";
-import { IngredientItem } from "./ingredient-item";
-import { PizzaImage } from "./pizza-image";
-import { Title } from "./title";
+import { Button } from '../ui';
+import { GroupVariants } from './group-variants';
+import { IngredientItem } from './ingredient-item';
+import { PizzaImage } from './pizza-image';
+import { Title } from './title';
 
 interface Props {
   className?: string;
@@ -30,7 +30,7 @@ export function ChoosePizzaForm({
   ingredients,
   imageUrl,
   onClickAddCart,
-}: Props) {
+}: Readonly<Props>) {
   const {
     size,
     type,
@@ -56,7 +56,7 @@ export function ChoosePizzaForm({
   };
 
   return (
-    <div className={cn(className, "flex flex-1")}>
+    <div className={cn(className, 'flex flex-1')}>
       <PizzaImage imageUrl={imageUrl} size={size} />
       <div className="w-[490px] bg-[#f7f6f5] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />

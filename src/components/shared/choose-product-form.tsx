@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { cn } from "@/src/lib/utils";
+import { cn } from '@/src/lib/utils';
 
-import { Button } from "../ui";
-import { Title } from "./title";
+import { Button } from '../ui';
+import { Title } from './title';
 
 interface Props {
-  className?: string;
-  name: string;
-  imageUrl: string;
-  onClickAdd?: () => void;
+  readonly className?: string;
+  readonly name: string;
+  readonly imageUrl: string;
+  readonly onClickAdd?: () => void;
 }
 
 export function ChooseProductForm({
@@ -18,12 +18,12 @@ export function ChooseProductForm({
   imageUrl,
   onClickAdd,
 }: Props) {
-  const textDetails = "30 см, традиционное тесто 30";
+  const textDetails = '30 см, традиционное тесто 30';
   const totalPrice = 350;
   const loading = false;
 
   return (
-    <div className={cn(className, "flex flex-1")}>
+    <div className={cn(className, 'flex flex-1')}>
       <div className="flex items-center justify-center flex-1 relative w-full">
         <img
           src={imageUrl}
@@ -38,6 +38,7 @@ export function ChooseProductForm({
 
         <Button
           loading={loading}
+          onClick={onClickAdd}
           className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
         >
           Добавить в корзину за {totalPrice} ₽

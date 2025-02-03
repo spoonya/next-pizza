@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { cn } from "@/src/lib/utils";
+import { cn } from '@/src/lib/utils';
 
 interface Props {
   className?: string;
@@ -12,7 +12,7 @@ export const PizzaImage: React.FC<Props> = ({ imageUrl, size, className }) => {
   return (
     <div
       className={cn(
-        "flex items-center justify-center flex-1 relative w-full",
+        'flex items-center justify-center flex-1 relative w-full',
         className
       )}
     >
@@ -20,11 +20,11 @@ export const PizzaImage: React.FC<Props> = ({ imageUrl, size, className }) => {
         src={imageUrl}
         alt="Logo"
         className={cn(
-          "relative left-2 top-2 transition-all z-10 duration-300",
+          'relative left-2 top-2 transition-all z-10 duration-300',
           {
-            "w-[300px] h-[300px]": size === 20,
-            "w-[400px] h-[400px]": size === 30,
-            "w-[500px] h-[500px]": size === 40,
+            'w-[300px] h-[300px]': size === 20,
+            'w-[400px] h-[400px]': size === 30,
+            'w-[500px] h-[500px]': size === 40,
           }
         )}
       />
